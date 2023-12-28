@@ -1,6 +1,7 @@
 <template>
   <nav :class="{ active }">
     <template v-if="isLogged">
+
       <button
         class="action"
         @click="toRoot"
@@ -80,7 +81,7 @@
       </router-link>
     </template>
 
-    <div
+    <!-- <div
       class="credits"
       v-if="
         $router.currentRoute.path.includes('/files/') && !disableUsedPercentage
@@ -90,24 +91,32 @@
       <progress-bar :val="usage.usedPercentage" size="small"></progress-bar>
       <br />
       {{ usage.used }} of {{ usage.total }} used
-    </div>
+    </div> -->
 
-    <p class="credits">
+    <div class="credits">
       <span>
         <span v-if="disableExternal">File Browser</span>
         <a
           v-else
           rel="noopener noreferrer"
           target="_blank"
-          href="https://github.com/filebrowser/filebrowser"
-          >File Browser</a
+          href="https://www.joongle.pt/pt/"
+          >Joongle</a
         >
-        <span> {{ version }}</span>
+        <span> 1.1a</span>
       </span>
       <span>
         <a @click="help">{{ $t("sidebar.help") }}</a>
       </span>
-    </p>
+    </div>
+
+    <div id="username1" class="credits">
+      <span>
+        <span><p></p>{{user.username}}</span>
+      </span>
+    </div>
+
+
   </nav>
 </template>
 
@@ -187,3 +196,4 @@ export default {
   },
 };
 </script>
+
